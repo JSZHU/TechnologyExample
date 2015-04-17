@@ -1,0 +1,138 @@
+# MySQL.  Versions 4.1 and 5.0 are recommended.
+#
+# Install the MySQL driver:
+#   gem install mysql
+# On Mac OS X:
+#   sudo gem install mysql -- --with-mysql-dir=/usr/local/mysql
+# On Mac OS X Leopard:
+#   sudo env ARCHFLAGS="-arch i386" gem install mysql -- --with-mysql-config=/usr/local/mysql/bin/mysql_config
+#       This sets the ARCHFLAGS environment variable to your native architecture
+# On Windows:
+#   gem install mysql
+#       Choose the win32 build.
+#       Install MySQL and put its /bin directory on your path.
+#
+# And be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+development:
+  adapter: mysql
+  encoding: utf8
+  reconnect: true
+  database: xmo
+  pool: 5
+  username: xmo_dev
+  password: Mha15%oEv
+  host: 10.1.1.13
+  # username: xmo
+  #password: MWc200bs
+  
+  # username: xmo_readonly
+  # password: Tmac360doaS
+
+  # username: xmo_prd
+  # password: MWc200bs
+  # host: 10.1.1.130
+
+test:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  #database: test_banner
+  database: xmo_test
+  pool: 5
+  username: xmo_dev
+  password: Mha15%oEv
+  #host: 10.1.1.170
+  host: 10.1.1.13
+  #host: localhost
+
+production:
+  adapter: mysql
+  encoding: utf8
+  reconnect: true
+  database: xmo
+  pool:
+  username: xmo
+  password: Mha15%oEv
+  host: xmo_database
+
+xmo_summaries_development:
+  adapter: mysql
+  encoding: utf8
+  reconnect: true
+  database: xmo_summaries
+  pool: 5
+  # username: xmo_dev
+  # password: Mha15%oEv
+  # host: 10.1.1.13
+  username: xmo_readonly
+  password: Tmac360doaS
+  #host: 10.1.1.170
+  host: 10.1.1.130
+  #host: localhost
+
+xmo_summaries_test:
+  adapter: mysql
+  encoding: utf8
+  reconnect: true
+  database: xmo_summaries_test
+  pool: 5
+  username: xmo_dev
+  password: Mha15%oEv
+  host: 10.1.1.170
+
+gp_development:
+  adapter: postgresql
+  database: xmo_dw
+  username: jay_liu #xmo_web
+  password: ZLfr.cr0 #MWc200bs
+  host: 10.1.1.230 #118.140.66.42
+  port: 5432
+
+gp_batch:
+  adapter: postgresql
+  database: xmo_dw
+  username: xmo_reports
+  password: NAb389vx
+  host: 10.1.1.230
+
+
+xmo_readonly_development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: true
+  database: xmo
+  pool: 5
+  username: xmo_prd
+  password: MWc200bs
+  host: xmo_database_slave1
+
+gp_long_query:
+  adapter: postgresql
+  database: xmo_dw
+  username: xmo_reports
+  password: NAb389vx
+  host: 10.1.1.230
+
+xmo_targeting_development:
+  adapter: mysql
+  encoding: utf8
+  reconnect: true
+  database: xmo_summaries_test
+  pool: 5
+  username: xmo_dev
+  password: Mha15%oEv
+  host: 10.1.1.170
+
+gp_etl_api:
+  adapter: postgresql
+  database: xmo_dw
+  username: mike_gao
+  password: j!QvkmlO
+  host: 10.1.1.230
+gp_web:
+  adapter: postgresql
+  database: xmo_dw
+  username: xmo_reports
+  password: NAb389vx
+  host: 10.1.1.230
